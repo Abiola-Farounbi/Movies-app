@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import MoviesList from "../views/MoviesList.vue";
+import UserProfile from "../views/UserProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     name: "MoviesList",
     component: MoviesList,
   },
+  {
+    path: "/profile",
+    name: "profile",
+    component: UserProfile
+  }
  
 ];
 
