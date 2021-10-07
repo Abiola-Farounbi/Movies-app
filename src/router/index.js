@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import MoviesList from "../views/MoviesList.vue";
 import UserProfile from "../views/UserProfile.vue";
-
+import { authGuard } from "../auth/authGuard";
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,11 +16,13 @@ const routes = [
     path: "/movies",
     name: "MoviesList",
     component: MoviesList,
+    beforeEnter: authGuard
   },
   {
     path: "/profile",
     name: "profile",
-    component: UserProfile
+    component: UserProfile,
+    beforeEnter: authGuard
   }
  
 ];
@@ -30,5 +32,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+
 
 export default router;
